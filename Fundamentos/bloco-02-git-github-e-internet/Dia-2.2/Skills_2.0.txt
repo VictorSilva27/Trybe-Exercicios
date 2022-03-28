@@ -7,3 +7,5 @@ O que eu vou aprender na Trybe:
 - CSS
 - Internet
 - JavaScrip
+-PHP
+-Python
