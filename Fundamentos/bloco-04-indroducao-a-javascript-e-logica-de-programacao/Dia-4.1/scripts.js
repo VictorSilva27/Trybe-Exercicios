@@ -115,7 +115,7 @@ switch(xadrez.toLowerCase()){
 // Questão 7
 console.log("----- Questão 7 -----");
 
-let notaPorcentagem = -10;
+let notaPorcentagem = 10;
 
 if (notaPorcentagem < 101 && notaPorcentagem > 0) {
 
@@ -132,7 +132,6 @@ if (notaPorcentagem < 101 && notaPorcentagem > 0) {
     }else if (notaPorcentagem < 50) {
         console.log('F');
     }
-
 } else {
     console.log('Erro nota invalida');
 }
@@ -141,14 +140,97 @@ if (notaPorcentagem < 101 && notaPorcentagem > 0) {
 // Questão 8
 console.log("----- Questão 8 -----");
 
-const var1 = 2;
-const var2 = 1;
-const var3 = 16;
+const var1 = 29;
+const var2 = 10;
+const var3 = 17;
 
-let result = 0;
-if (var1 % 2 !== 1 && var3 % 2 !== 1 && var2 % 2 !== 1 ) {
-    result = true;
+let numeroPar = 0;
+if (var1 % 2 !== 1 || var3 % 2 !== 1 || var2 % 2 !== 1 ) {
+
+    numeroPar = true;
 }else{
-    result = false;
+    
+    numeroPar = false;
 }
-console.log(result);
+console.log(numeroPar);
+
+
+// Quetão 9
+console.log('---- Questão 9 ----');
+
+const val1 = 7;
+const val2 = 10;
+const val3 = 16;
+
+let numeroImpar = 0;
+if (val1 % 2 !== 0 || val3 % 2 !== 0 || val2 % 2 !== 0 ) {
+
+    numeroImpar = true;
+}else{
+
+    numeroImpar = false;
+}
+console.log(numeroImpar);
+
+
+// Questão 10
+console.log('---- Questão 10 ----');
+
+const custoProduto = 10;
+const custoVenda = 450;
+
+if (custoProduto >= 0 && custoVenda >= 0) {
+    
+    const custoTotalProduto = custoProduto * 1.2;
+    const totalCusto = (custoVenda - custoTotalProduto) * 1000; 
+
+    console.log(totalCusto);
+} else {
+    console.log('Erro valores negativos.');
+}
+
+
+// Questão 11
+console.log('---- Questão 11 ----');
+
+
+
+let INSS;
+let IR;
+
+const salarioBruto = 2000.00;
+
+if (salarioBruto <= 1556.94) {
+    INSS = salarioBruto * 0.08;
+
+} else if (salarioBruto <= 2594.92) {
+
+    INSS = salarioBruto * 0.09;
+} else if (salarioBruto <= 5189.82) {
+
+    INSS = salarioBruto * 0.11;
+} else {
+
+    INSS = 570.88;
+}
+
+const salarioBase = salarioBruto - INSS;
+
+if (salarioBase <= 1903.98) {
+
+  IR = 0;
+} else if (salarioBase <= 2826.65) {
+
+  IR = (salarioBase * 0.075) - 142.80;
+} else if (salarioBase <= 3751.05) {
+
+  IR = (salarioBase * 0.15) - 354.80;
+} else if (salarioBase <= 4664.68) {
+
+  IR = (salarioBase * 0.225) - 636.13;
+} else {
+
+  IR = (salarioBase * 0.275) - 869.36;
+};
+
+console.log("Salário: " + (salarioBase - IR));
