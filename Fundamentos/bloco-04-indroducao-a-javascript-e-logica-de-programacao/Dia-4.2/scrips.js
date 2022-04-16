@@ -88,8 +88,6 @@ console.log(numeros);
 // Questão 9
 console.log('---- Questão 9 ----');
 
-let numerosDividos = 0;
-
 for (let index = 0; index < numeros.length; index++) {
     console.log(numeros[index] / 2);
 }
