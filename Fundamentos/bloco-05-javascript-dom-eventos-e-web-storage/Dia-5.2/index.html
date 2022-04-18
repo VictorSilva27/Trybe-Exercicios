@@ -1,0 +1,34 @@
+<main id="paiDoPai">
+    <section id="pai">
+      <section id="primeiroFilho"></section>
+      <section id="elementoOndeVoceEsta">
+
+        <section id="primeiroFilhoDoFilho"></section>
+        <section id="segundoEUltimoFilhoDoFilho"></section>
+
+      </section>
+      Atenção!
+      <section id="terceiroFilho"></section>
+      <section id="quartoEUltimoFilho"></section>
+    </section>
+
+    <script>
+        // exercicio 1
+        let local = document.querySelector('#elementoOndeVoceEsta');
+        document.querySelector('#elementoOndeVoceEsta').parentNode.style.color = 'red';
+        document.querySelector('#primeiroFilho').innerText = 'Olá, aqui é o primeiro filho';
+        document.querySelector('#pai').firstElementChild;
+        document.querySelector('#elementoOndeVoceEsta').previousElementSibling;
+        document.querySelector('#elementoOndeVoceEsta').nextSibling;
+        document.querySelector('#elementoOndeVoceEsta').nextElementSibling;
+
+        // exercicio 2
+        document.querySelector('#elementoOndeVoceEsta') = document.createElement('h1');
+        
+        
+        // exercicio 3
+        //Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho.
+
+       local.removeChild('segundoEUltimoFilhoDoFilho');
+    </script>
+  </main>
