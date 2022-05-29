@@ -44,9 +44,19 @@ const customerInfo = (order) => {
     const number = order[address].number;
     const apartment = order[address].apartment;
 
-    console.log(`Olá ${deliveryPerson}, entrega para: ${customerName}, Telefone: ${customerPhone}, R. ${street}, Nº: ${number}, AP: ${apartment}`);
+    return `Olá ${deliveryPerson}, entrega para: ${customerName}, Telefone: ${customerPhone}, R. ${street}, Nº: ${number}, AP: ${apartment}`;
 }
-
-customerInfo(order);
+console.log(customerInfo(order));
 
 //   "Olá Ana Silveira, entrega para: Rafael Andrade, Telefone: 11-98763-1416, R. Rua das Flores, Nº: 389, AP: 701".
+
+// Exercicio 02
+const orderModifier = (order) => {
+    const newBuyer = order.name = 'Luiz Silva';
+    const pizzas = Object.keys(order.order.pizza);
+    const drinks = order.order.drinks.coke.type;
+    const newTotal = order.payment.total = '50';
+
+    return `Olá ${newBuyer}, o total do seu pedido de ${pizzas[0]}, ${pizzas[1]} e ${drinks} é R$ ${newTotal},00.`;
+}
+console.log(orderModifier(order));
