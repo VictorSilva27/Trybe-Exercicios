@@ -16,6 +16,13 @@ header{
 main{ 
     padding-left: 35px;
     margin-top: 10px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+div{
+    padding: 20px;
+    color: brown;
 }
 li{
     color: rgb(214, 222, 230);
