@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  background-color: rgb(148, 121, 121);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pokemon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1 2 0;
+  min-width: 25%;
+  margin: 10px 10px;
+  border: 1px gray solid;
+  border-radius: 10px;
+
+  background-color: white;
+}
+
+.pokedex {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 10px;
+  border-radius: 10px;
+  background-color: black;
+}
