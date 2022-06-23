@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-// import './Form.css'
+import EstadoFavorito from './EstadoFavorito'
+import Idade from './Idade';
+import PapaguaioFavorito from './PapaguioFamoso';
+import Tué from './Tué?';
 
 class Form extends Component {
   constructor() {
@@ -12,7 +15,6 @@ class Form extends Component {
       idade: 0,
       Tué: false,
       papaguaioFamoso: '',
-      radio: false,
     };
   }
 
@@ -31,55 +33,26 @@ class Form extends Component {
     <div>
       <h1>Estados e React - Tecnologia fantástica ou reagindo a regionalismos?</h1>
       <form className="form">
-        <div>
-            <label>
-            Diga qual o seu Estado favorito! De React ou do Brasil, você decide! =)
-                <textarea 
-                name="estadoFavorito" 
-                value={this.state.estadoFavorito} 
-                onChange={this.handleChange} />
-            </label>
-        </div>
+        <EstadoFavorito
+            value={this.state.estadoFavorito} 
+            handleChange={this.handleChange}
+        />
         
-        <div>
-            <label>
-                Quantos anos a Rainha tem?
-                <input
-                    type="number"
-                    name="idade"
-                    value={this.state.idade} 
-                    onChange={ this.handleChange }
-                    />
-            </label>
-        </div>
+        <Idade 
+            value={this.state.idade}
+            handleChange={this.handleChange}
+        />
         
-        <div>
-            <label>
-                Tu é?
-                <input
-                type="checkbox"
-                name="Tué"
-                value={this.state.Tué} 
-                onChange={ this.handleChange }
-                />
-            </label>
-        </div>
+        <Tué 
+            value={this.state.Tué}
+            handleChange={this.handleChange}
+        />
 
-        <div>
-            <label>
-                Qual papaguaio é mais famoso?
-                <select
-                name="papaguaioFamoso"
-                value={this.state.papaguaioFamoso} 
-                onChange={ this.handleChange }
-                >
-                    <option value="Vagalume"> Vagalume </option>
-                    <option value="Borboleta"> Borboleta </option>
-                    <option value="Lagarta"> Lagarta </option>
-                    <option value="Tubarão"> Tubarão </option>
-                </select>
-            </label>
-        </div>
+        <PapaguaioFavorito 
+            value={this.state.papaguaioFamoso}
+            handleChange={this.handleChange}
+        />
+        
       </form>
     </div>
     );
