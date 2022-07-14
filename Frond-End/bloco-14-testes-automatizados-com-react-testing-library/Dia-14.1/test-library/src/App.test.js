@@ -1,58 +1,34 @@
 // App.test.js
 import React from 'react';
-import { getByTestId, render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
 import App from './App';
-import ValidEmail from './ValidEmail';
 
-describe('Testando elementos', () => {
+afterEach(() => jest.clearAllMocks());
 
-  test('Verificando se existe o campo Email.', () => {
-    render(<App />);
-    const inputEmail = screen.getByLabelText('Email');
-    expect(inputEmail).toBeInTheDocument();
-    expect(inputEmail).toHaveProperty('type', 'email');
-  });
-  test('Verificando se existe um botão', () => {
-    render(<App />);
-    const btn = screen.getAllByRole('button');
-    expect(btn).toHaveLength(2)
-  });
+it('fetches a joke', async () => {
+  const joke = {
+    id: '7h3oGtrOfxc',
+    joke: 'Whiteboards ... are remarkable.',
+    status: 200,
+  };
 
-  test('Verificando se existe um botão de enviar', () => {
-    render(<App />);
-    const btn = screen.getByTestId('id-send');
-    expect(btn).toBeInTheDocument();
-    expect(btn).toHaveProperty('type', 'button');
-    expect(btn).toHaveValue('Enviar');
-  });
-});
+  // .mockresolvedValue
+  // jest.spyOn(global, 'fetch');
+  // global.fetch.mockResolvedValue({
+  //   json: jest.fn().mockResolvedValue(joke),
+  // });
 
-describe('Testando funções', () => {
-  test('Verificando se o botão e o campo email estão funcionando.', () => {
-    render(<App />);
+  // Promise.Resolve
+  global.fetch = jest.fn(() => Promise.resolve({
+    json: () => Promise.resolve(joke),
+  }));
 
-    const EMAIL_USER = 'email@email.com';
-    const textEmail = screen.getByTestId('id-email-user');
-
-    expect(textEmail).toBeInTheDocument();
-    expect(textEmail).toHaveTextContent('Valor:');
-
-    const btnSend = screen.getByTestId('id-send');
-    const inputEmail = screen.getByLabelText('Email');
-    userEvent.type(inputEmail, EMAIL_USER);
-    userEvent.click(btnSend);
-
-    expect(textEmail).toHaveTextContent(`Valor: ${EMAIL_USER}`);
-    expect(inputEmail).toHaveValue('');
-  });
-});
-
-describe('Component ValidEmail', () => {
-  test('Testando um componente, caso o email seja inválido.', () => {
-    const EMAIL_USER = 'emailerrado';
-    render(<ValidEmail email={ EMAIL_USER } />);
-    const isValid = screen.getByText('Email Inválido');
-    expect(isValid).toBeInTheDocument();
-  });
+  render(<App />);
+  const renderedJoke = await screen.findByText('Whiteboards ... are remarkable.');
+  expect(renderedJoke).toBeInTheDocument();
+  expect(global.fetch).toBeCalledTimes(1);
+  expect(global.fetch).toBeCalledWith(
+    'https://icanhazdadjoke.com/',
+    { headers: { Accept: 'application/json' } },
+  );
 });
