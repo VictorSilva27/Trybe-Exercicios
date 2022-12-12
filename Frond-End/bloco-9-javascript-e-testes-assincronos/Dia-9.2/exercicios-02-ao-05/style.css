@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(59, 59, 58);
+}
+
+header{
+    color: rgb(214, 222, 230);
+    padding: 25px;
+    text-align: center;
+    background-color: brown;
+}
+main{ 
+    padding-left: 35px;
+    margin-top: 10px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+div{
+    padding: 20px;
+    color: brown;
+}
+li{
+    color: rgb(214, 222, 230);
+    size: 15px;
+    padding: 5px;
+}
