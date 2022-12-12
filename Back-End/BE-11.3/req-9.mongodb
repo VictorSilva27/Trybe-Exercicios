@@ -1,0 +1,11 @@
+use('cinema');
+db.movies.find({ 
+    category: { $size: 2 },
+    budget: { $mod: [5, 0] },
+  },  
+  {
+    _id: false,
+    title: true,
+    budget: 1
+  }
+).pretty();
